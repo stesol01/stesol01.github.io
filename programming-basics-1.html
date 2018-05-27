@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="sv" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Programmering bas 1 - Matematiska Python</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./programming-basics-1.html">
+
+        <meta name="author" content="Stefan Sollander" />
+        <meta name="keywords" content="python,jupyter" />
+        <meta name="description" content="Introduktion till python och programmering i allmänhet." />
+
+        <meta property="og:site_name" content="Matematiska Python" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Programmering bas 1"/>
+        <meta property="og:url" content="./programming-basics-1.html"/>
+        <meta property="og:description" content="Introduktion till python och programmering i allmänhet."/>
+        <meta property="article:published_time" content="2018-05-21" />
+            <meta property="article:section" content="Programmering" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="jupyter" />
+            <meta property="article:author" content="Stefan Sollander" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Matematiska Python            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/kontakt.html">
+                             Kontakt
+                          </a></li>
+                         <li><a href="./pages/resurser.html">
+                             Resurser
+                          </a></li>
+                        <li >
+                            <a href="./category/matematik.html">Matematik</a>
+                        </li>
+                        <li >
+                            <a href="./category/misc.html">Misc</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/programmering.html">Programmering</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./programming-basics-1.html"
+                       rel="bookmark"
+                       title="Permalink to Programmering bas 1">
+                        Programmering bas 1
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-05-21T00:00:00+02:00"> Mån 21 Maj 2018</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/programmering.html">Programmering</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/python.html">python</a>
+        /
+	<a href="./tag/jupyter.html">jupyter</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="#-Introduktion-till-programmering"><em>#</em> Introduktion till programmering<a class="anchor-link" href="##-Introduktion-till-programmering">&#182;</a></h1><p>Att ta upp om programmering:</p>
+<ul>
+<li><a href="#intro">Introduktion</a></li>
+<li><a href="Programmering-basics-2.ipynb">Variabler och datatyper</a></li>
+<li><a href="">Aritmetiska operatorer</a></li>
+<li><a href="">Logiska påståenden och operatorer</a></li>
+<li><a href="">Selektion</a></li>
+<li><a href="">Iterationer</a></li>
+<li><a href="">Funktioner</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="intro"></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="##-Introduktion"><em>##</em> Introduktion<a class="anchor-link" href="###-Introduktion">&#182;</a></h2><p>Programmering innebär i all enkelhet att ge instruktioner som en dator kan utföra för att lösa en given uppgift</p>
+<p>I kursen kommer att användas imperativt programmeringsätt (instruktion för instruktion). Programmeringspråket kommer att vara Python3 och inriktningen kommer att vara mot matematisk programmering. Alltså hur progrmmmaeringkan användas för att lösa matematiska problem. Framförallt problem som beräkningsmässigt kan vara tidsödande att göra för hand och som låter datorernas beräkningspotential komma till sin fulla rätt.</p>
+<p>Python är ett dynamiskt interpreterat språk vilket innebär att variabler ej behöver typas och källkoden köra rad för rad utan att kompileras till maskkinkod innan körning. Deet innebär exempelvis att ett fel i syntaxen inte leder till ett <strong>exekveringsfel</strong> utan kör programmet fram till den punkten.</p>
+<p>Ett annat vanligt förekommande fel är <strong>logiska fel</strong>, alltså fel som tillåter programmet att löras igeonm utan oväntade stopp men där resultatet av programmet inte är en lösning på det avsedda problemet.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="##-Installering-av-python-mijön"><strong>##</strong> Installering av python-mij&#246;n<a class="anchor-link" href="###-Installering-av-python-mijön">&#182;</a></h2><p>Installering:</p>
+<ul>
+<li>Ladda hem Anaconda-paketet med Python 3.6 64-bitars arkitektur från denna <a href="https://www.anaconda.com/download/#windows">hemsida</a>.</li>
+<li>Kör installationsfilen (var uppmärksam på att den kan vilja installera ett tilläggspaket som går att tacka nej till)</li>
+<li>installera Jupyter Lab genom att<ul>
+<li>I windows startmeny leta upp mappen Anaconda3(64). I den mappen finns Anaconda promtp, starta den.</li>
+<li>I prompten skriv: <ul>
+<li><code>conda install -c conda-forge jupyterlab</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Jupyter Notebook kan sedan startas från Anaconda3 mappen i startmenyn.</li>
+<li>En ny webbsida kommer att öppnas. Bläddra till en lämplig mapp att skapa en ny notebook i.</li>
+<li>Jupyter Labs kan valfritt öppnas om man i adressfönstret byter ut tree mot lab.</li>
+<li>Jupyter Lab ger tillgång till en fullständigare utvecklingsmiljö.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="##-Magi"><strong>##</strong> Magi<a class="anchor-link" href="###-Magi">&#182;</a></h2><p>Jupyter Notebook ger oss tillgång till <em>magiska</em> kommandon. Följande kommer att användas i kursen. ? efter kommandot ger tillgång till hjälpen.</p>
+<ul>
+<li>%%magic</li>
+<li>%%lsmagic</li>
+<li>%%run file.py</li>
+<li>%%load file.py</li>
+<li>%%writefile file.py</li>
+<li>%%time</li>
+<li>%%timeit</li>
+<li>%%matplotlib inline</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">magic</span><span class="o">?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-intense-fg ansi-bold">Docstring:</span>
+Print information about the magic function system.
+
+Supported formats: -latex, -brief, -rest
+<span class="ansi-red-intense-fg ansi-bold">File:</span>      c:\users\sos012\appdata\local\continuum\anaconda3\lib\site-packages\ipython\core\magics\basic.py
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="##-Jupyter-Notebook"><strong>##</strong> Jupyter Notebook<a class="anchor-link" href="###-Jupyter-Notebook">&#182;</a></h2><p>Jupyter Notebook är en programmerings-omgivning som körs lokalt på datorn men i en webbläsare. Omgivningen har fått en stor spridning på universitet och akademi där matematik används inom olika vetenskaper. Såsom dataanlys, statik, astronomi, fysik, biologi m.m.</p>
+<p>Notebooken har fil-ändelsen .ipynb och en öppnad fil består av celler. Det finns två typer av celler,</p>
+<ul>
+<li><strong>markdown</strong> (som tillåter formatering av text samt matematisk notation via latex märkning) och </li>
+<li><strong>kod-celler</strong> (som ger möjlighet att köra python-kod, från fil eller interaktivt som en terminal.</li>
+</ul>
+<p>Python-kod sparas vanligen i text-filer med fil-ändelsen.py men cellerna möjliggör att antingen köra kod direkt eller från en fil.</p>
+<p>Kortkommandon:</p>
+<ul>
+<li>Ctrl + Enter: kör aktuell cell</li>
+<li>B: skapar ny cell</li>
+<li>X: raderar aktuell cell</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Följande tre kodceller exempel på hur kod kan köras</span>
+<span class="c1">#</span>
+<span class="c1">#Alt 1 kod skrivs direkt i cellen</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">writefile</span> test.py
+
+#Alt 2 kod i en cell skrivs till en fil
+a = 5
+b = 10
+print(a / b)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting test.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load test.py</span>
+
+<span class="c1">#Alt 3 kod från en specifik fil läses in till en cell</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>50</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> test.py
+
+<span class="c1">#kod från en fil läses in från en cell</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+ 
+
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
+    <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 Stefan Sollander
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

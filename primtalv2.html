@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="sv" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Primtal - Matematiska Python</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./primtalv2.html">
+
+        <meta name="author" content="Stefan Sollander" />
+        <meta name="keywords" content="Ma1,Python" />
+        <meta name="description" content="En introducerande artikel till primtal och test av primtal." />
+
+        <meta property="og:site_name" content="Matematiska Python" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Primtal"/>
+        <meta property="og:url" content="./primtalv2.html"/>
+        <meta property="og:description" content="En introducerande artikel till primtal och test av primtal."/>
+        <meta property="article:published_time" content="2018-05-23" />
+            <meta property="article:section" content="Matematik" />
+            <meta property="article:tag" content="Ma1" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:author" content="Stefan Sollander" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Matematiska Python            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/kontakt.html">
+                             Kontakt
+                          </a></li>
+                         <li><a href="./pages/resurser.html">
+                             Resurser
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/matematik.html">Matematik</a>
+                        </li>
+                        <li >
+                            <a href="./category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="./category/programmering.html">Programmering</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./primtalv2.html"
+                       rel="bookmark"
+                       title="Permalink to Primtal">
+                        Primtal
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-05-23T00:00:00+02:00"> Ons 23 Maj 2018</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/matematik.html">Matematik</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/ma1.html">Ma1</a>
+        /
+	<a href="./tag/python.html">Python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Primtal">Primtal<a class="anchor-link" href="#Primtal">&#182;</a></h2><p>Primtal är en av de fundamentala byggstenarna inom de område som heter talteori i Matematiken. Egenskapern har i och med introduktionen av datorerna från sent 1900-tal och framåt fått ett rejält uppsving. Primtalen används i allt från prestandatestning till kanske den viktigaste tilläpningen där de används till kryptering mellan sändare och mottagare på internet.</p>
+<p>Men låt oss börja med en defintion.</p>
+<blockquote><p><strong>Definition:</strong>
+Primtal är ett positivt heltal som endast är delbart med sig själv och talet ett.</p>
+</blockquote>
+<p>Test om ett tal är ett heltal eller inte. Det enklaste testet som går att gör är att kontrollera om talet är delbart med något av alla tal som är mindre än talet. I python kan koden exempelvis se ut som:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PrimtalsTest</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+<p>Algoritmen ovanför testar om ett givet tal n får en rest vid division med talet i. I så fall skrivs talet i ut. Vid test av talet 16 kan en körning se ut som nedan.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">timeit</span>
+#%save file
+
+def primtalsTest1(n):
+    for i in range(2,n):
+        if (n % i == 0):
+            #print(i)
+            return False
+    return True
+
+
+#kör funktionen för alla taö mellan 2 och 50 000
+for n in range(2,5000):
+    #print(n, primtalsTest1(n))
+    primtalsTest1(n)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>270 ms ± 2.52 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Algoritmen ovanför är relativt ineffektiv. Den kan göras snabbare genom att göra smarta val för vilka tal som testas. Exempelvis</p>
+<ul>
+<li>testa inte jämna tal. Det enda jämna tal som är ett primtal är 2.</li>
+<li>testa inte alla tal som är mindre än talet. Det räcker att gå till roten ur talet</li>
+<li>test bara udda tal.</li>
+</ul>
+<p>En algoritm som implementerar detta kan se ut som följande.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">timeit</span>
+
+import math
+
+def primtalsTest2(n):
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    n_root = math.ceil(math.sqrt(n))
+    
+    for i in range(3,n_root,2):
+        if (n % i == 0):
+            return False
+    return True
+
+for n in range(2,5000):
+    #print(n, primtalsTest2(n))
+    primtalsTest2(n)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>11.4 ms ± 603 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Det finns några ytterligare förbättringar man kan göra för att snabba upp algoritmen ytterligare. [1]</p>
+<p>I nästa artikel ska vi använda denn algoritm för att hitta delare till ett tal, resten av denna artikel kommer att ägnas åt distributionen av primtal. Styrkan med datorer är deras överlägsna beräkningshastighet så låt oss använda den för att undersöka hur primtalen fördelar sig.</p>
+<p>Tänk en funktion $\Pi(n)$ som ger antalet primtal mindre än talet $n$. Gör vi det för de 100 första heltalen så erhålls följande tabell.</p>
+<table>
+<thead><tr>
+<th>$n$</th>
+<th style="text-align:center">$\Pi$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td>50</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>100</td>
+<td style="text-align:center">25</td>
+</tr>
+</tbody>
+</table>
+<p>En funktion som löser detta problem kan se ut som följande. Vi plottar upp funktionen för lite större datamängder och undersöker hur de ser ut.</p>
+<p>[1]: <a href="https://en.wikipedia.org/wiki/Primality_test">Primality Tests</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">primeCounter</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">primtalsTest2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">primeCounter</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[105]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x27c156089b0&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Slut på artikeln.</p>
+<p>//<a href="./author/stefan-sollander.html">SoS</a></p>
+<p><a href="./index.html">Startsidan</a></p>
+
+</div>
+</div>
+</div>
+ 
+
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
+    <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 Stefan Sollander
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
